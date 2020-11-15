@@ -1,0 +1,130 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>我的信息</title>
+	<link rel="stylesheet" th:href="@{/static/css/person/personal-information.css}">
+	<script th:src="@{/static/js/jquery-3.1.4.js}"></script>
+</head>
+<body>
+<!--	导航栏-->
+	<div class="nav-box">
+                <!-- logo -->
+               <div class="logo-box"><img th:src="@{/static/img/login/702logo-2.png}"></div>
+                    <!-- 导航 -->
+				<ul class="nav">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="#">业务范围</a></li>
+					<li><a href="#">产品中心</a></li>
+					<li><a href="#">关于我们</a></li>
+					<li><a href="#">联系我们</a></li>
+				</ul>
+                <!-- 塌陷问题 -->
+                <div class="clearfix"></div>
+
+            <!-- 用户信息 -->
+            <div class="info">
+				<img class="imghover" id="imghover" th:src="@{/static/img/login/a.jpeg}">
+				<p>admin</p>
+				<button><a th:href="@{/logout}" style="text-decoration:none;color: white;">退出</a></button>
+			</div>
+			<div id="select" class="select">
+				<img style="width: 80px;height: 80px;" th:src="@{/static/img/login/a.jpeg}">
+				<ul>
+					<li id="personal" style="background-image: url('/static/img/login/img8.png');">个人中心</li>
+					<li style="background-image: url('/static/img/login/img11.png');">系统通知</li>
+					<li style="background-image: url('/static/img/login/img9.png');">广告合作</li>
+					<li style="background-image: url('/static/img/login/img12.png');">资料下载</li>
+					<li style="background-image: url('/static/img/login/img10.png');">账号设置</li>
+				</ul>
+
+				<!-- <div class="clearfix"></div> -->
+			</div>
+            
+	</div>
+<!--图片-->
+	<div class="img-box">
+		<img th:src="@{/static/img/login/2.jpg}">
+	</div>
+	
+<!--个人中心	-->
+	<div class="personal">
+		<dl class="p-left">
+			<dt>个人中心</dt>
+			<dd id="home"><img th:src="@{/static/img/login/3.png}"><span>首页</span></dd>
+			<dd id="head"><img th:src="@{/static/img/login/4.png}"><span>我的头像</span></dd>
+			<dd id="information"><img th:srcs="@{/static/img/login/5-1.png}"><span>我的信息</span></dd>
+		</dl>
+		<div class="head">
+			<div class="h-title">
+				<span></span>
+				<p>我的信息</p>
+			</div>
+		<form action="">
+			<div class="infor">
+				<div class="petname">
+					<p>昵称：</p>
+					<input type="text" placeholder="设置您的昵称">
+				</div>
+				<div class="username">
+					<p>用户名：</p>
+					<span>admin</span>
+				</div>
+				<div class="qianming" style="height: 100px">
+					<p>我的签名：</p>
+					<textarea placeholder="设置您的签名"></textarea>
+				</div>
+				<div class="sex">
+					<p>性别：</p>
+					<div class="s-items" style="margin-bottom: 0">
+						<div><input name="sex" type="radio"><span>男</span></div>
+						<div><input name="sex" type="radio"><span>女</span></div>
+						<div><input name="sex" type="radio"><span>保密</span></div>
+					</div>
+				</div>
+				<div class="birth">
+					<p>出生日期：</p>
+					<input type="date" placeholder="选择日期">
+				</div>
+
+			</div>
+		</form>
+			<button>保存</button>
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script>
+	window.onload = function(){
+
+		document.getElementById("imghover").onmouseenter = function(){
+			document.getElementById("imghover").style.transform = "translateY(40px) scale(1.35,1.35)";
+			document.getElementById("select").style.display = "block";
+
+
+		};
+
+		document.getElementById("select").onmouseleave = function(){
+			// alert("0000");
+			document.getElementById("imghover").style.transform = "none";
+			document.getElementById("select").style.display = "none";
+		};
+	};
+
+
+
+	$(function(){
+		$("#personal").click(function(){
+			window.location.href="/person/homePage";
+		});
+		$("#home").click(function(){
+			window.location.href="/person/homePage";
+		});
+		$("#head").click(function(){
+			window.location.href="/person/headPage";
+		});
+	});
+
+</script>

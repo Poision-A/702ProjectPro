@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link th:href="@{/static/css/login.css}" rel="stylesheet"/>
+<!--    <link th:href="@{/static/js/layui/css/layui.css}" rel="stylesheet"/>-->
+    <script th:src="@{/static/js/jquery-3.1.4.js}"></script>
+    <script th:src="@{/static/js/layui/layui.all.js}"></script>
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+</head>
+
+<body>
+<!-- 头部 -->
+<div class="header">
+    <div>
+        <img src="./static/img/login/702logo-2.png">
+        <span></span>
+        <p>登录</p>
+    </div>
+</div>
+
+<div class="log">
+    <div class="log-box">
+        <div class="log-box-txt">
+            <h1>专注顾客体验不懈怠</h1>
+            <p>Focus on Customer Experience</p>
+        </div>
+        <div class="log-lable">
+            <span>登录</span>
+                <input id="userno" type="text" placeholder="请输入账号">
+                <input id="password" type="password" placeholder="请输入密码">
+                <button id="loginButton">登录</button>
+                <div class="forget">
+                    <a href="#">忘记密码</a>
+                    <a href="#">忘记会员名</a>
+                    <a th:href="@{register}">免费注册</a>
+                </div>
+                <div class="others">
+                    <span></span>
+                    <div class="others-items">
+                        <p>其他登录方式</p>
+                        <img src="./static/img/login/img17.png">
+                        <img src="./static/img/login/img18.png">
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 页脚 -->
+<div class="footer">
+    <div class="f-items">
+        <div class="f-phone">
+            <h1>联系我们</h1>
+            <span></span>
+            <p>
+                全国统一热线：400-000-XX00<br>
+                公司：某某科技有限公司<br>
+                地址：广东省深圳市龙华区龙华街道锦绣新村<br>
+                邮箱：862107685@qq.com
+            </p>
+        </div>
+
+        <div class="f-scope">
+            <h1>业务范围</h1>
+            <span></span>
+            <p>
+                后端开发<br>
+                WEB前端<br>
+                UI设计<br>
+                平面设计
+            </p>
+        </div>
+
+        <div class="f-QRCode">
+            <div>
+                <img src="./static/img/login/img2.png">
+                <p>扫码浏览手机网站</p>
+            </div>
+            <div>
+                <img src="./static/img/login/img13.jpg">
+                <p>扫码关注公众号</p>
+            </div>
+        </div>
+        <p class="provider">Copyright © 2020 某某科技有限公司 All rights reserved &nbsp;&nbsp;&nbsp;&nbsp; 备案号：<a
+                href="http://beian.miit.gov.cn/">某ICP备0000x号</a></p>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script>
+    $("#loginButton").click(function(){
+        var userno = $("#userno").val();
+        var password = $("#password").val();
+        if (!$.trim(userno) || !$.trim(password)) {
+            layer.msg("请输入用户名或密码！");
+            return;
+        }
+        $.ajax({
+            type:'post',
+            url:'/doLogin',
+            data:{'userno':userno,'password':password},
+            success:function (data) {
+                if(data === 1){
+                    window.location.href="/index";
+                }
+                else if(data === 2){
+                    layer.msg("账户或密码错误！", {icon: 5});
+                }
+                else if(data === 3){
+                    layer.msg("已登录！");
+                }else{
+                    layer.msg("系统异常，请稍后再试！");
+                }
+            },
+            error:function () {
+                layer.msg("系统异常，请稍后再试！");
+            }
+        })
+    })
+</script>

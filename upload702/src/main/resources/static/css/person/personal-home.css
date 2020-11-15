@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0;padding: 0;font-family: "微软雅黑"}
+ul,li{list-style: none}
+a{text-decoration: none;color: black}
+
+
+/*导航*/
+
+.nav-box{width: 1200px;height: 80px;margin: 0 auto;display: flex;margin-top: 20px;
+	justify-content: space-between;position: relative;
+}
+
+.nav-box img{width: 80px;float: left;margin-right: 40px}
+.nav a{color: black;font-size: 16px;line-height: 80px;}
+.nav li{float: left;padding-left: 60px;}
+.nav a:hover{color: #d41717;}
+
+
+.info{width: 300px;display: flex;justify-content: space-between;align-items: center;}
+.info p{color: black;font-size: 16px}
+.select{width: 260px;height: 400px;background-color:white;display: none;
+  box-shadow: 0px 0px 8.6px 1.4px rgba(4, 0, 0, 0.23);position: absolute;right: 140px;top: 80px;
+}
+.select img{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: -40px;
+    left: 90px;
+}
+
+.select ul{position: relative;top: 60px;}
+.select li{width: 200px;line-height: 68px;font-size: 16px;padding-left: 60px;transition: .4s;
+    background-repeat: no-repeat;background-size: 24px;background-position: 20px center;
+}
+
+.select li:hover{background-color: #f0f0f0;cursor: pointer;}
+
+
+.imghover{transition: 0.2s;}
+
+.info img{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+.info button{width: 60px;height: 30px;background-color: #d41717;color: white;font-size: 14px;cursor: pointer;}
+
+
+input,button{border: none;outline: none;}
+
+
+/*图片*/
+.img-box{max-width: 100%;height: 100px;overflow: hidden;margin-top: 20px;background-color: aqua;display: flex;
+	justify-content: center
+}
+
+
+/*个人中心*/
+.personal{width: 1200px;margin: 0 auto;margin-top: 40px;border: #DCDCDC solid 1px;display: flex}
+.p-left{width: 150px;background-color: #f7f7f7;border-right: solid 1px #DCDCDC}
+.p-left dt{font-size: 20px;height: 60px;text-align: center;line-height: 60px;color: #999999}
+.p-left dd{height: 50px;cursor: pointer;display: flex;align-items: center;position: relative}
+.p-left span{position: absolute;left: 60px}
+.p-left dd:nth-of-type(1){background-color: #d41717;color: white}
+.p-left dd:hover{background-color: #d41717;color: white}
+
+.p-left dd:nth-of-type(2):hover img{content: url(../img/4-1.png)}
+.p-left dd:nth-of-type(3):hover img{content: url(../img/5-1.png)}
+
+.p-left img{height: 20px;margin-left:20px}
+
+.home{width: 1010px;padding: 0 20px;}
+.h-header{margin-top: 60px;display: flex;align-items:center;position: relative; }
+.h-header img{width: 80px;
+    height: 80px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.h-header span{display: block;width: 80px;height: 24px;background-color: white;text-align: center;
+	line-height: 24px;font-size: 14px;border:  1px solid #DCDCDC;border-radius: 4px;color: #999999;
+	margin: 0 20px;
+}
+.h-header a{width: 100px;height: 30px;background-color: white;border:  1px solid #DCDCDC;
+	border-radius: 4px;position: absolute;right: 0;text-align: center;font-size: 14px;line-height: 30px
+}
+
+
+.safe{width: 100%;margin-top: 40px;border-top:1px solid #DCDCDC;padding-top: 20px;display: flex;
+	flex-wrap: wrap;justify-content: space-around;
+}
+.s-title{width: 100%;height: 50px;display: flex}
+.s-title span{font-size: 24px;line-height: 50px;margin-left: 10px}
+.s-title img{width: 50px;}
+
+.s-items{width: 300px;height: 120px;display: flex;justify-content: center;
+	align-items: center;margin-top: 20px;margin: 20px 40px;}
+.s-items h3{font-weight: normal;font-size: 18px;}
+.s-items p{font-size: 14px;color: #b3b3b3;line-height: 34px;}
+.text{width: 200px}
+.s-items button{width: 60px;height: 30px;background-color: #d41717;font-size: 12px;color: white;
+border-radius: 4px;cursor: pointer
+}
+.email{width: 80px;height: 80px;border-radius: 50%;background-color: #b3b3b3;display: flex;
+	justify-content: center;align-items: center;margin-right: 20px
+}
+.email img{height: 50px;}
+
+
+

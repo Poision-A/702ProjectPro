@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link th:href="@{/static/css/register.css}" rel="stylesheet"/>
+    <script th:src="@{/static/js/jquery-3.1.4.js}"></script>
+    <script th:src="@{/static/js/layui/layui.all.js}"></script>
+    <script th:src="@{/static/js/bootstrap.js}"></script>
+</head>
+<title>注册</title>
+<body>
+<!-- 头部 -->
+<div class="header">
+    <div>
+        <img th:src="@{/static/img/login/702logo-2.png}">
+        <span></span>
+        <p>注册</p>
+    </div>
+</div>
+
+<!-- 注册 -->
+<div class="reg-info">
+    <div class="reg-title">
+        <h1>欢迎注册XXXX</h1>
+        <div class="reg-tips">
+            <span>已有账号?</span>
+            <a th:href="@{login}">去登录>></a>
+        </div>
+    </div>
+    <div class="userinfo">
+        <input id="userno" type="text" placeholder="请输入账号">
+        <input id="username" type="text" placeholder="请输入用户名">
+        <input id="password" type="password" placeholder="请输入密码">
+        <div class="phone">
+            <span>+86</span>
+            <input id="phone" type="text" placeholder="输入手机号码">
+        </div>
+
+        <div id="box">
+            <div class="b-btn">>></div>
+            <p class="b-text">请按住滑块，拖动到最右边</p>
+            <div class="bg"></div>
+        </div>
+
+        <div class="reg-btn">
+            <button id="registerButton">注册</button>
+        </div>
+    </div>
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+    <div class="f-items">
+        <div class="f-phone">
+            <h1>联系我们</h1>
+            <span></span>
+            <p>
+                全国统一热线：400-000-XX00<br>
+                公司：某某科技有限公司<br>
+                地址：广东省深圳市龙华区龙华街道锦绣新村<br>
+                邮箱：862107685@qq.com
+            </p>
+        </div>
+
+        <div class="f-scope">
+            <h1>业务范围</h1>
+            <span></span>
+            <p>
+                后端开发<br>
+                WEB前端<br>
+                UI设计<br>
+                平面设计
+            </p>
+        </div>
+
+        <div class="f-QRCode">
+            <div>
+                <img th:src="@{/static/img/login/img2.png}">
+                <p>扫码浏览手机网站</p>
+            </div>
+            <div>
+                <img th:src="@{/static/img/login/img13.jpg}">
+                <p>扫码关注公众号</p>
+            </div>
+        </div>
+        <p class="provider">Copyright © 2020 某某科技有限公司 All rights reserved &nbsp;&nbsp;&nbsp;&nbsp; 备案号：<a
+                href="http://beian.miit.gov.cn/">某ICP备0000x号</a></p>
+    </div>
+</div>
+</body>
+</html>
+<script>
+
+        //事件:滑块1.按下  onmousedown
+        //2.拖动 onmousemove
+        //3.松开 onmouseup
+        var flag=false; //处理验证是否通过  默认是不通过
+        var box=document.getElementById('box');//大盒子
+        var btn=document.getElementsByClassName('b-btn')[0];//滑块
+        var text=document.getElementsByClassName('b-text')[0];//文字
+        var bg=document.getElementsByClassName('bg')[0];//背景
+
+        //按下
+        btn.onmousedown=function(e){
+            var downX=e.clientX; //按下按钮后与窗口的x轴间距
+            //移动
+            btn.onmousemove=function(e){
+                var moveX=e.clientX-downX; //滑动的时候距离窗口的x轴的间距  滑动的x-按下的x
+                //只有在大于0的时候才拖动
+                if(moveX>0){
+                    btn.style.left=moveX+'px';//滑块与左边的距离
+                    bg.style.width=moveX+'px'; //背景的宽度就是滑块距离左边的位置
+                    //验证成功 条件 不能> 盒子的宽度-滑块的宽度
+                    if(moveX>=(box.offsetWidth-btn.offsetWidth)){
+                        text.innerText='验证通过';
+                        text.style.color='#fff';
+                        btn.onmousemove=null; //清除拖动事件
+                        btn.onmousedown=null; //清除按下事件
+                        btn.innerText="";
+                        btn.style.backgroundImage= "url('img/img15.png')";
+                        flag=true; //通过的时候设置为true
+                    }
+                }
+
+            }
+
+        //松开
+        btn.onmouseup=function(){
+            //为假的时候
+            if(flag==false){
+                btn.onmousemove=null;//清除事件
+                btn.style.left=0;
+                bg.style.width=0;
+            }
+
+        }
+    }
+
+    $("#userno").change(function () {
+        var userno = $("#userno").val();
+        $.ajax({
+            type:'post',
+            url:'register/checkInfo',
+            data:{'userno':userno},
+            success:function (data) {
+                if(data === 'used'){
+                    layer.msg("该账号已注册！");
+                    $("#userno").val('');
+                }
+            },
+            error:function () {
+                layer.msg("系统异常请稍后再试！");
+                $("#userno").val('');
+            }
+        })
+    })
+
+    $("#username").change(function () {
+        var username = $("#username").val();
+        $.ajax({
+            type:'post',
+            url:'register/checkInfo',
+            data:{'username':username},
+            success:function (data) {
+                if(data === 'used'){
+                    layer.msg("该用户名已注册！");
+                    $("#username").val('');
+                }
+            },
+            error:function () {
+                layer.msg("系统异常请稍后再试！");
+                $("#username").val('');
+            }
+        })
+    })
+    
+
+    $("#phone").change(function(){
+        var phone  = $("#phone").val();
+        //1827050896
+        var telStr = /^[1](([3][0-9])|([4][5-9])|([5][0-3,5-9])|([6][5,6])|([7][0-8])|([8][0-9])|([9][1,8,9]))[0-9]{8}$/;
+        if(!isEmpty(phone)){
+            if (!(telStr.test(phone))) {
+                layer.msg("手机号输入不规范，请重新输入！");
+                $("#phone").val('');
+            }
+        }
+        
+        $.ajax({
+            type:'post',
+            url:'register/checkInfo',
+            data:{'phone':phone},
+            success:function (data) {
+                if(data === 'used'){
+                    layer.msg("该手机号已注册！");
+                    $("#phone").val('');
+                }
+            },
+            error:function () {
+                layer.msg("系统异常请稍后再试！");
+                $("#phone").val('');
+            }
+        })
+        
+    })
+
+    $("#registerButton").click(function () {
+
+        if(!flag){
+            layer.msg("请通过验证！");
+            return;
+        }
+
+        var userno  = $("#userno").val();
+        var username  = $("#username").val();
+        var password  = $("#password").val();
+        var phone  = $("#phone").val();
+
+        if(isEmpty(userno) && isEmpty(username) && isEmpty(password) && isEmpty(phone)){
+            layer.msg("请补全信息！");
+            return;
+        }
+
+        $.ajax({
+            type:'post',
+            url:'register/userRegister',
+            data:{'userno':userno,'username':username,'password':password,'phone':phone},
+            success:function (data) {
+                if(data === 'ok'){
+                    layer.msg("注册成功！");
+                }else{
+                    layer.msg("注册失败！");
+                }
+            },
+            error:function () {
+                layer.msg("系统异常，请稍后再试！");
+            }
+        })
+    })
+
+    function isEmpty(obj){
+        if(typeof obj == "undefined" || obj == null || obj == ""){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

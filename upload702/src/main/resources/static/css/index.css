@@ -1,0 +1,179 @@
+*{margin: 0;padding: 0;}
+body{margin: 0;background-color: #f0f0f0;font-family: 微软雅黑;}
+h1{font-size: unset;font-weight: unset;}
+/* p,h1{margin: 0;padding: 0;} */
+a{color: black;text-decoration: none;}
+ul{list-style-type: none;margin: 0;padding: 0;}
+.header{
+    width: 100%;
+    height: 1000px;
+    padding-top: 40px;
+    background-color: azure;
+    background-image: url(../img/login/img1.jpg);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin-bottom: 170px;
+}
+
+
+.daohang{width: 46%;height: 80px;;margin: 0 auto;}
+
+.header img{width: 80px;float: left;}
+.header a{color: white;font-size: 20px;line-height: 80px;}
+.header ul{float: right;}
+.header li{float: left;padding-left: 100px;}
+.header a:hover{color: #d41717;}
+
+
+.info{width: 400px;position: absolute;right: 100px;top: 40px;}
+.info p{color: white;font-size: 20px;line-height: 60px;}
+.select{width: 260px;height: 480px;margin-top: 10px;background-color:white;display: none;}
+.select img{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    top: 30px;
+    left: 90px;
+}
+
+.select ul{position: relative;top: 60px;}
+.select li{width: 200px;line-height: 68px;font-size: 16px;padding-left: 60px;
+    background-repeat: no-repeat;background-size: 24px;background-position: 20px center;
+}
+
+.select li:hover{background-color: #f0f0f0;cursor: pointer;}
+.userinfo{width: 200px;margin: 0 auto;}
+
+
+/* .select li:nth-last-of-type(1){background-image: url("/img/img8.png");} */
+
+
+
+.imghover{transition: 0.2s;}
+/* .imghover:hover{
+    transform: translateY(40px) scale(1.35,1.35);
+} */
+
+.userinfo img{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-right: 30px;
+}
+
+.info button{width: 60px;height: 30px;background-color: #d41717;color: white;font-size: 14px;cursor: pointer;position: absolute;right: 0;top: 15px;}
+
+
+
+
+.nav{
+    background-color: white;
+    width: 1200px;
+    height: 140px;
+    margin: 0 auto;
+    position: relative;
+    top: 850px;
+}
+
+input,button{border: none;outline: none;}
+
+.search{position: absolute;height: 40px;padding: 50px 0px 50px 40px;}
+.search form{margin: 0 auto;position: relative;}
+.search input{
+    box-sizing: border-box;
+    width: 220px;
+    height: 40px;
+    border: #d41717 1px solid;
+    font-size: 14px;
+    padding-left: 10px;
+    
+}
+.search button{
+    color: white;
+    width: 60px;
+    height: 40px;
+    background-color: #d41717;
+    font-size: 14px;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: #d41717 1px solid;
+    display: block;
+    float: right;
+}
+
+
+.xian1{left: 410px;}
+.xian2{right: 346px;}
+ .nav span{width: 1px;height: 100px;display: block;background-color: #cccccc;top: 20px;position: absolute;}
+
+.phone{width: 232px;left: 520px;bottom: 50px;margin: 0;position: absolute;}
+.phone img{width: 46px;margin-right: 20px;}
+.phone p{font-size: 14px;}
+.phone h1{font-size: 24px;}
+ 
+
+.code{position: absolute;right: 40px;height: 100px;width: 220px;top: 20px;}
+.txt{height: 40px;width: 100px;text-align: right;position: relative;top: 30px;}
+.code p{text-align: right;display: inline;font-size: 14px;}
+.code img{width: 100px;position: absolute;right: 0;top: 0;}
+
+/* 业务范围 */
+.scope{font-size: 30px;line-height: 50px;width: 1200px;margin: 0 auto;text-align: center;}
+
+.yewu{width: 1200px;margin: 0 auto;background-color: violet;text-align: center;display: flex;margin-top: 40px;}
+.yewu div{width: 300px;height: 400px;background-color: white;box-sizing: border-box;border: #cccccc 1px solid;padding: 40px;display: -webkit-flex;display: flex;
+        flex-direction: row;flex-wrap: wrap;align-content: space-between;justify-content: center;}
+.yewu h1{font-size: 26px;}  
+.yewu p{font-size: 16px;text-align: justify;}
+
+/* 产品中心 */
+.product{font-size: 30px;line-height: 50px;width: 1200px;margin: 0 auto;text-align: center;margin-top: 100px;}
+
+.p-list{max-width: 1200px;margin: 0 auto;display: flex;flex-direction: row;flex-wrap: wrap;align-content: space-between;margin-top: 20px;}
+.p-list div{width: 285px;height: 300px;background-color: white;margin-right: 20px;margin-top: 20px;}
+.p-list div:nth-of-type(4){margin-right: 0;}
+.p-list div:nth-of-type(8){margin-right: 0;}
+.p-list button{width: 100px;height: 40px;background-color: #d41717;font-size: 14px;color: white;border-radius: 20px;margin: 0 auto;margin-top: 40px;}
+.p-list button:hover{cursor: pointer;background-color: white;border: #d41717 1px solid;color: black;}
+
+/* 关于我们 */
+.about{font-size: 30px;line-height: 50px;width: 1200px;margin: 0 auto;text-align: center;margin-top: 100px;}
+.account{max-width: 1200px;margin: 0 auto;display: flex;}
+.account img{height: 400px;}
+.account-txt{margin-left: 80px;width: 540px;height: 400px;;text-align: justify;text-indent: 2em;line-height: 2em;}
+.account-txt p{margin-top: 30px;}
+.account-txt button{width: 100px;height: 40px;background-color: #d41717;font-size: 14px;color: white;border-radius: 20px;margin: 0 auto;position: relative;
+        left: 0;bottom: -108px;
+}
+.account-txt button:hover{cursor: pointer;background-color: white;border: #d41717 1px solid;color: black;}
+
+
+/* 页脚 */
+.footer{max-width: 100%;height: 260px;background-color: #1a1a1a;margin-top: 100px;padding-top: 40px;}
+.f-items{width: 1200px;margin: 0 auto;display: flex;justify-content: space-between;flex-direction: row;flex-wrap: wrap;}
+.f-items span{display: block;width: 100%;height: 1px;background-color: #4c4c4c;margin: 20px 0;}
+
+.f-phone{width: 280px;}
+.f-phone h1{color: white;font-size: 18px;}
+.f-phone p{color: #999999;font-size: 14px;line-height: 2em;}
+
+.f-scope{width: 200px;}
+.f-scope h1{color: white;font-size: 18px;}
+.f-scope p{color: #999999;font-size: 14px;line-height: 2em;}
+
+.f-QRCode{width: 320px;text-align: center;display: flex;}
+.f-QRCode div:nth-of-type(2){margin-left: 40px;}
+.f-QRCode img{width: 140px;height: 140px;}
+.f-QRCode p{color: #999999;font-size: 14px;line-height: 34px;}
+
+.provider{color: #999999;margin: 0 auto;position: relative;;bottom: -40px;}
+.provider a{color: #999999;}
